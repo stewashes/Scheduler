@@ -1,5 +1,5 @@
-#Progetto di Calcolatori Elettronici
-##PANORAMICA
+# Progetto di Calcolatori Elettronici
+## PANORAMICA
 Report dell’esecuzione e del funzionamento del progetto definito durante le lezioni di Calcolatori
 Elettronici. Si rimanda al link delle specifiche richieste:
 https://docs.google.com/document/d/1ikbfA4v9-FQhoQm40FjaT2b5x5MV3h2OvMWFQS1SrFs/edit
@@ -8,15 +8,15 @@ https://android.googlesource.com/platform/prebuilts/gcc/linux-x86/host/x86_64-li
 sysroot/usr/include/sysexits.h
 per scrivere il make file abbiamo utilizzato Guida trovata :
 http://www.bo.cnr.it/corsi-di-informatica/corsoCstandard/Lezioni/17Linuxmake.html
-##OBIETTIVI
+## OBIETTIVI
 1. Realizzazione di uno Scheduler con preemption
 2. Realizzazione di uno Scheduler senza preemption
 3. Utilizzo del Multithreading
-##SPECIFICHE
+## SPECIFICHE
 Abbiamo deciso di strutturare il codice in più cartelle, contenenti i vari file .c e .h , per facilitare la
 realizzazione del progetto e renderlo maggiormente leggibile e comprensibile evitando così file
 con troppe righe di codice trattanti elementi differenti.
-##STRUTTURE DATI
+## STRUTTURE DATI
 Per la realizzazione del progetto abbiamo deciso di sfruttare una lista semplicemente
 concatenata nella quali inseriamo i valori dei dati letti da file , due liste semplicemente
 concatenate per tenere traccia dei processi ready e blocked e per ottimizzare al meglio il
@@ -31,7 +31,7 @@ permette di tenere traccia in qualsiasi frangente sia dell'inizio che della fine
 consente di velocizzare l'inserimento in coda dei vari elementi , evitando la ricerca di questi ultimi
 percorrendola tutta. La quale operazione sarebbe risultata troppo dispendiosa dal punto di vista
 del tempo al punto di non rispettare il parametro indicato e richiesto dal progetto.
-##ALGORITMI
+## ALGORITMI
 Gli algoritmi scelti e utilizzati per la schedulazione sono FCFS e ROUND ROBIN , i quali offrono un
 buon rapporto tra complessità d'implementazione e prestazioni , la scelta del quanto di tempo è
 stata fatta tramite opportuni test e prove di comparazione .
@@ -40,7 +40,7 @@ una sequenza d’istruzioni non bloccanti occupanti molti cicli di clock) genera
 “starvation” , ovvero la presenza di processi in stato READY che attendono la schedulazione. Lo
 svantaggio prestazionale del Round-Robin viene ripagato da una politica di schedulazione
 cosiddetta “ fear” .
-##EVOLUZIONE ESECUZIONE
+## EVOLUZIONE ESECUZIONE
 All’ interno della funzione MAIN si leggono i file e viene riempita la nostra struttura dati LISTA
 con ciò che è stato letto nel file di input. Questa assieme ad altri attributi sarà argomento dello
 Scheduler. Sempre nel MAIN sono state effettuate la fork() e la creazione del thread,
@@ -62,18 +62,18 @@ esplicitamente richiesto) e in più abbiamo aggiunto il comando make test che es
 automatico lo scheduling di tutti e 5 i file test in modo sequenziale.
 Infine si può anche utilizzare il comando make clean per eliminare tutto ciò che è stato creato per
 l’ esecuzione dell’ intero simulator.
-##ANALISI PRESTAZIONALE
+## ANALISI PRESTAZIONALE
 Il programma è stato scritto e testato su sistema Linux Ubuntu 18.04 LTS dotato del seguente
 hardware:
 Intel core i3-4005U , dual-core , 1.7 GHz
-![Screenshot[(1.png)
+![Screenshot](1.png)
 tempo totale per l’esecuzione di tutti e 5 i file
-![Screenshot[(2.png)
+![Screenshot](2.png)
 Inoltre è stato il suo funzionamento anche sulla macchina virtuale fornita sul portale universitario
 AulaWeb, sfruttando il seguente hardware
 Intel Core i5-6200U CPU, 2.30GHz, 2401 Mhz, 2 core, 4 processori logici
 tempo per un solo test
-![Screenshot[(3.png)
+![Screenshot](3.png)
 tempo totale per l’esecuzione di tutti e 5 i file
-![Screenshot[(4.png)
+![Screenshot](4.png)
 La velocità d'esecuzione soddisfa i canoni imposti ( 180 secondi massimo).
